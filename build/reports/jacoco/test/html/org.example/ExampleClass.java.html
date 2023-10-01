@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExampleClass.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">classroom</a> &gt; <a href="index.source.html" class="el_package">org.example</a> &gt; <span class="el_source">ExampleClass.java</span></div><h1>ExampleClass.java</h1><pre class="source lang-java linenums">package org.example;
+
+
+import java.security.KeyPairGenerator;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+
+<span class="nc" id="L8">public class ExampleClass {</span>
+
+    // Method 1: Generate a random password
+    public static String generateRandomPassword(int length) {
+<span class="nc" id="L12">        String characters = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&amp;*&quot;;</span>
+<span class="nc" id="L13">        StringBuilder password = new StringBuilder();</span>
+<span class="nc" id="L14">        SecureRandom random = new SecureRandom();</span>
+
+<span class="nc bnc" id="L16" title="All 2 branches missed.">        for (int i = 0; i &lt; length; i++) {</span>
+<span class="nc" id="L17">            int randomIndex = random.nextInt(characters.length());</span>
+<span class="nc" id="L18">            password.append(characters.charAt(randomIndex));</span>
+        }
+
+<span class="nc" id="L21">        return password.toString();</span>
+    }
+
+    // Method 2: Count the number of vowels in a given string
+    public static int countVowels(String input) {
+<span class="pc bpc" id="L26" title="1 of 4 branches missed.">        if (input == null || input.isEmpty()) {</span>
+<span class="fc" id="L27">            return 0;</span>
+        }
+
+<span class="fc" id="L30">        String vowels = &quot;AEIOUaeiou&quot;;</span>
+<span class="fc" id="L31">        int count = 0;</span>
+
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (char character : input.toCharArray()) {</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">            if (vowels.indexOf(character) != -1) {</span>
+<span class="fc" id="L35">                count++;</span>
+            }
+        }
+
+<span class="fc" id="L39">        return count;</span>
+    }
+
+    // Method 3: Check if a string is a valid email address
+    public static boolean isValidEmailAddress(String email) {
+        // Simple email validation regex
+<span class="fc" id="L45">        String regex = &quot;^[A-Za-z0-9+_.-]+@(.+)$&quot;;</span>
+<span class="fc" id="L46">        return email.matches(regex);</span>
+    }
+
+    // Method 4: Reverse a sentence
+    public static String reverseSentence(String sentence) {
+<span class="fc" id="L51">        String[] words = sentence.split(&quot;\\s&quot;);</span>
+<span class="fc" id="L52">        StringBuilder reversed = new StringBuilder();</span>
+
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        for (int i = words.length - 1; i &gt;= 0; i--) {</span>
+<span class="fc" id="L55">            reversed.append(words[i]).append(&quot; &quot;);</span>
+        }
+
+<span class="fc" id="L58">        return reversed.toString().trim();</span>
+    }
+
+    // Method 5: Generate a unique identifier based on timestamp and random number
+    public static String generateUniqueIdentifier() {
+<span class="nc" id="L63">        long timestamp = System.currentTimeMillis();</span>
+<span class="nc" id="L64">        int randomInt = new SecureRandom().nextInt(10000);</span>
+<span class="nc" id="L65">        return timestamp + &quot;-&quot; + randomInt;</span>
+    }
+
+    // Method 6: Calculate the area of a triangle
+    public static double calculateTriangleArea(double base, double height) {
+<span class="pc bpc" id="L70" title="1 of 4 branches missed.">        if (base &lt;= 0 || height &lt;= 0) {</span>
+<span class="fc" id="L71">            throw new IllegalArgumentException(&quot;Base and height must be positive numbers.&quot;);</span>
+        }
+<span class="fc" id="L73">        return 0.5 * base * height;</span>
+    }
+
+    // Method 7: Calculate the area of a rectangle
+    public static double calculateRectangleArea(double length, double width) {
+<span class="nc bnc" id="L78" title="All 4 branches missed.">        if (length &lt;= 0 || width &lt;= 0) {</span>
+<span class="nc" id="L79">            throw new IllegalArgumentException(&quot;Length and width must be positive numbers.&quot;);</span>
+        }
+<span class="nc" id="L81">        return length * width;</span>
+    }
+
+    // Method 8: Calculate the volume of a cylinder
+    public static double calculateCylinderVolume(double radius, double height) {
+<span class="nc bnc" id="L86" title="All 4 branches missed.">        if (radius &lt;= 0 || height &lt;= 0) {</span>
+<span class="nc" id="L87">            throw new IllegalArgumentException(&quot;Radius and height must be positive numbers.&quot;);</span>
+        }
+<span class="nc" id="L89">        double baseArea = Math.PI * Math.pow(radius, 2);</span>
+<span class="nc" id="L90">        return baseArea * height;</span>
+    }
+
+    // Method 9: Find the greatest common divisor (GCD) of two numbers
+    public static int findGCD(int a, int b) {
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        while (b != 0) {</span>
+<span class="fc" id="L96">            int temp = b;</span>
+<span class="fc" id="L97">            b = a % b;</span>
+<span class="fc" id="L98">            a = temp;</span>
+<span class="fc" id="L99">        }</span>
+<span class="fc" id="L100">        return a;</span>
+    }
+
+    // Method 10:  (vulnerable)
+    // If an application uses a key that is considered short and insecure,
+    // the encrypted data is exposed to attacks aimed at getting at the plaintext.
+    public static void generateKey(String[] args) {
+        try {
+<span class="nc" id="L108">            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(&quot;RSA&quot;);</span>
+<span class="nc" id="L109">            keyPairGenerator.initialize(1024); // Vulnerable</span>
+
+<span class="nc" id="L111">        } catch (NoSuchAlgorithmException e) {</span>
+            // ...
+<span class="nc" id="L113">        }</span>
+<span class="nc" id="L114">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

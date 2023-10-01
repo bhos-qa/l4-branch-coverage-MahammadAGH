@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.ExampleClassTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-10-01T14:24:23" hostname="DESKTOP-LCCA6SE" time="0.052">
+  <properties/>
+  <testcase name="testFindGCD()" classname="org.example.ExampleClassTest" time="0.037"/>
+  <testcase name="testCalculateTriangleArea()" classname="org.example.ExampleClassTest" time="0.004"/>
+  <testcase name="testReverseSentence()" classname="org.example.ExampleClassTest" time="0.001"/>
+  <testcase name="testCountVowels()" classname="org.example.ExampleClassTest" time="0.001"/>
+  <testcase name="testIsValidEmailAddress()" classname="org.example.ExampleClassTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
